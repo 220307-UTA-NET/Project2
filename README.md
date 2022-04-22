@@ -1,5 +1,5 @@
 # Project2  - Zhixin, Christian, Tahereh, Kelly
-Nov 15 2021 Arlington .NET / Richard Hawkins, Nick Escalona
+May 6, 2022 .NET / Trainer:Richard Hawkins
 
 - ASP.NET Core REST service
     - owns the business logic of the application
