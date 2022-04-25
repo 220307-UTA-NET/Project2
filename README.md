@@ -21,5 +21,6 @@ Users are divided into 2 classes:
       -Select animal to adopt
            
 
-Sellers: they are able to upload images, enter personal information, pet description, and access to adopters’ profiles. 
-Adopters; they are able to enter their personal information and their home characteristics/conditions to their profiles to be available to the sellers.
+Sellers: they are able to upload images, enter personal information, pet description, and access to adopters’ profiles.
+
+Adopters: they are able to enter their personal information and their home characteristics/conditions to their profiles to be available to the sellers.
