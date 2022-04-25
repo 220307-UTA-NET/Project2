@@ -1,4 +1,4 @@
-# Project2  - Zhixin, Christian, Tahereh, Kelly
+# Project2  - Cameron Merkh, Kevin Lee, Jerome Gear, Amin Rahimi
 May 6, 2022 .NET / Trainer:Richard Hawkins
 
 - ASP.NET Core REST service
