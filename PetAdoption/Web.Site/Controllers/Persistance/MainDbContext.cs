@@ -1,11 +1,17 @@
 ﻿using System;
+using Microsoft.EntityFrameworkCore;
+
 namespace Web.Site.Controllers.Persistance
 {
-	public class MainDbContext
+	public class MainDbContext : DbContext
 	{
-		public MainDbContext()
+		public MainDbContext(DbContextOptions<MainDbContext> options): base(options)
 		{
+			
 		}
+
+		public DbSet<SignalDataModel> Signals { get; set; }
+
 	}
 }
 
