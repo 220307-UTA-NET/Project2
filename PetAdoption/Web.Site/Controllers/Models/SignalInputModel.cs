@@ -3,7 +3,8 @@ namespace Web.Site.Controllers.Models
 {
 	public class SignalInputModel
 	{
-		public string Occupation { get; set; }
+
+public string Occupation { get; set; }
 		public string Description { get; set; }
 	
 		public string CustomerName { get; set; }
@@ -13,8 +14,9 @@ namespace Web.Site.Controllers.Models
 
 		public string Zone { get; set; }
 			
-
-			
+		public SignalInputModel()
+		{
+		}
 	}
 }
 

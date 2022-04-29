@@ -20,6 +20,7 @@ namespace Web.Site.Controllers
 
 		public async Task<IActionResult> SignalArrived(SignalInputModel inputmodel)
         {
+
 			//let’s define what we might need to do when a signal arrived in our API:
 			//Log the signal input
 			//Validate the signal input
@@ -35,6 +36,14 @@ namespace Web.Site.Controllers
 
 
     }
+
+			
+        }
+
+
+		
+	}
+
 }
 
 //The simple explanation of the method is that we have a SignalArrived() method

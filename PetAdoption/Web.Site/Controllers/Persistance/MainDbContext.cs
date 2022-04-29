@@ -1,4 +1,5 @@
 ﻿using System;
+
 using Microsoft.EntityFrameworkCore;
 
 namespace Web.Site.Controllers.Persistance
@@ -11,6 +12,15 @@ namespace Web.Site.Controllers.Persistance
 		}
 
 		public DbSet<SignalDataModel> Signals { get; set; }
+
+
+namespace Web.Site.Controllers.Persistance
+{
+	public class MainDbContext
+	{
+		public MainDbContext()
+		{
+		}
 
 	}
 }
