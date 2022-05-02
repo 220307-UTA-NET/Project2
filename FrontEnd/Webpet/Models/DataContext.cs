@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using Webpet.data;
 
 namespace Webpet.Models
 {
@@ -10,6 +11,7 @@ namespace Webpet.Models
         }
 
         public DbSet<pet_image> Images { get; set; }
+        public DbSet<AnimalName> animal_Names { get; set; }
     }
 
 

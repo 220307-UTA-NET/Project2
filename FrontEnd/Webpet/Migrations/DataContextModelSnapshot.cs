@@ -22,13 +22,17 @@ namespace Webpet.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder, 1L, 1);
 
-            modelBuilder.Entity("Webpet.Models.pet_image", b =>
+            modelBuilder.Entity("Webpet.data.pet_image", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+
+                    b.Property<string>("ContentType")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Name")
                         .IsRequired()
@@ -41,6 +45,22 @@ namespace Webpet.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Images");
+                });
+
+            modelBuilder.Entity("Webpet.Models.AnimalName", b =>
+                {
+                    b.Property<int>("animal_Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("animal_Id"), 1L, 1);
+
+                    b.Property<string>("Animal_name")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("animal_Id");
+
+                    b.ToTable("animal_Names");
                 });
 #pragma warning restore 612, 618
         }
