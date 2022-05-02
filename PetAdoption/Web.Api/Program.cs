@@ -15,11 +15,8 @@ builder.Services.AddControllers();
 var app = builder.Build();
 
 app.MapControllers();
-
-
-var builder = WebApplication.CreateBuilder(args);
-var app = builder.Build();
-
+var context = app.Services.CreateScope().ServiceProvider.GetRequiredService<PetDbContext>();
+InitialDB.SeedDatabase(context);
 
 app.MapGet("/", () => "Hello World!");
 
