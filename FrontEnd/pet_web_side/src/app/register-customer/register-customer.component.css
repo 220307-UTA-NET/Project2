@@ -1,0 +1,35 @@
+.card{
+
+    margin-top: 10px;
+    border: none;
+    width: 500px;
+    padding: 40px;
+    position: absolute;
+    top: 60%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    background-color: rgb(169, 137, 33);
+    background: linear-gradient(90deg, rgb(126, 118, 97) 0%, rgb(213, 163, 63) 100% );
+}
+
+.mb3{
+    color:black
+}
+.form-control{
+    padding: 0% 40% 0% 0%;
+}
+
+.form-label{
+    font-family:Stencil Std, fantasy;
+    font-size: larger;
+    color: #2f273d;
+
+
+
+}
+.btn-primary{
+    padding: 2% 5% 2% 5%;
+    font-size: larger;
+    color: #2f273d;
+    
+}

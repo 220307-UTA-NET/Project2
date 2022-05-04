@@ -6,6 +6,12 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
+
+  [x: string]: any;
+  
+  title="pet_Store";
+
   title = 'pet_web_side';
+
   
 }
