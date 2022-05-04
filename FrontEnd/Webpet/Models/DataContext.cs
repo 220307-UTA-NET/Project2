@@ -19,6 +19,11 @@ namespace Webpet.Models
 
         public DbSet<pet_profile> Pet { get; set; }
 
+
+        public DbSet<pet_Dates_Table> PetDate { get; set; }
+
+
+
     }
 
 

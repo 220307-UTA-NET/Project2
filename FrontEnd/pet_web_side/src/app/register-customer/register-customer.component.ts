@@ -10,11 +10,39 @@ import { Router } from '@angular/router';
 })
 export class RegisterCustomerComponent implements OnInit {
 
+ 
   public registercustomer !: FormGroup;
+  public user_Name ! : string;
+  public user_FirstName ! : string;
+  public user_LastName ! :string;
+  public user_Password !: string;
+  public user_Id !: null;
+  
+
+
+  public registercustomer !: FormGroup;
+
 
   constructor(private formBuilder : FormBuilder, private http : HttpClient, private router :Router) { }
 
   ngOnInit(): void {
+
+    
+      
+   
+    
+
+  }
+  registercustomers1(){
+    const User_input = { 
+      
+      user_Name:this.user_Name,
+      user_FirstName:this.user_FirstName,
+      user_LastName:this.user_LastName,
+      user_Password:this.user_Password}
+    console.log(User_input)
+    this.http.post<any>("https://petservice.azurewebsites.net/api/User_login/register", User_input).subscribe (res=>{
+
     this.registercustomer= this.formBuilder.group({
       
       user_Name:[''],
@@ -28,6 +56,7 @@ export class RegisterCustomerComponent implements OnInit {
   }
   registercustomers1(){
     this.http.post<any>("https://petservice.azurewebsites.net/create_user", this.registercustomer.value).subscribe (res=>{
+
                      alert("signup successfull");
                      this.registercustomer.reset();
                      this.router.navigate(['login']);
