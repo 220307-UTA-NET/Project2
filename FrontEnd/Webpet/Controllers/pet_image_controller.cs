@@ -6,6 +6,7 @@ using Webpet.Models;
 using System.Data.Entity;
 
 
+
 namespace Webpet.Controllers
 {
     [Route("api/[controller]")]
@@ -19,6 +20,7 @@ namespace Webpet.Controllers
         {
             _context = context;
         }
+
 
 
         [HttpGet("Getimages")]
@@ -55,11 +57,24 @@ namespace Webpet.Controllers
             _context.animal_Names.Add(number);
             await _context.SaveChangesAsync();
 
+        [HttpGet("Getimage")]
+        public IActionResult Get()
+        {
+            string hi = "hello";
+            return Ok(hi);
+        }
+
+
+        [HttpPost("create")]
+        public IActionResult create([FromBody] image_data request)
+        {
+
             return Ok();
         }
 
 
         [HttpPost]
+
         public async Task<ActionResult<pet_image>> Index(IFormFile postedFile)
         {
             if (postedFile != null)
@@ -88,7 +103,7 @@ namespace Webpet.Controllers
 
             return Ok("posted");
         }
-        ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
         [HttpPost("pet_profile")]
         public async Task<ActionResult<pet_profile>> post([FromQuery] pet_profile_data pet_information, IFormFile postedFile)
         {
@@ -121,8 +136,7 @@ namespace Webpet.Controllers
 
 
 
-        ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-        ///
+        
         [HttpGet("Pet_image")]
         public async Task<FileResult> Get_pet_image(int Id)
         {
@@ -134,3 +148,31 @@ namespace Webpet.Controllers
     }
 }
 
+
+        public ActionResult Index(IFormFile postedFile)
+        {
+            byte[] bytes;
+            using (BinaryReader br = new BinaryReader(postedFile.OpenReadStream()))
+            {
+                bytes = br.ReadBytes(postedFile.Length);
+            }
+
+            _context.Images.Add(new pet_image
+            {
+                Name = Path.GetFileName(postedFile.Name),
+                image = bytes,
+                Id = 1,
+            });
+            /* FilesEntities entities = new FilesEntities();
+             entities.tblFiles.Add(new tblFile
+             {
+                 Name = Path.GetFileName(postedFile.Name),
+                 ContentType = postedFile.ContentType,
+                 Data = bytes
+             });
+             entities.SaveChanges();*/
+            return RedirectToAction("Index");
+        }
+
+    }
+}
