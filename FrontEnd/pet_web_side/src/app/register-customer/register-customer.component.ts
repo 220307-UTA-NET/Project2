@@ -9,6 +9,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./register-customer.component.css' ]
 })
 export class RegisterCustomerComponent implements OnInit {
+
  
   public registercustomer !: FormGroup;
   public user_Name ! : string;
@@ -21,7 +22,15 @@ export class RegisterCustomerComponent implements OnInit {
   constructor(private formBuilder : FormBuilder, private http : HttpClient, private router :Router) { }
 
   ngOnInit(): void {
-    
+
+
+  public registercustomer !: FormGroup;
+
+
+  constructor(private formBuilder : FormBuilder, private http : HttpClient, private router :Router) { }
+
+  ngOnInit(): void {
+
       
    
     
@@ -36,6 +45,22 @@ export class RegisterCustomerComponent implements OnInit {
       user_Password:this.user_Password}
     console.log(User_input)
     this.http.post<any>("https://petservice.azurewebsites.net/api/User_login/register", User_input).subscribe (res=>{
+
+
+    this.registercustomer= this.formBuilder.group({
+      
+      user_Name:[''],
+      user_FirstName:[''],
+      user_LastName:[''],
+      user_Password:[''],
+      
+
+    })
+
+  }
+  registercustomers1(){
+    this.http.post<any>("https://petservice.azurewebsites.net/create_user", this.registercustomer.value).subscribe (res=>{
+
                      alert("signup successfull");
                      this.registercustomer.reset();
                      this.router.navigate(['login']);

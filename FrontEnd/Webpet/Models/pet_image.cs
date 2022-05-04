@@ -1,4 +1,4 @@
-﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations;
 
 namespace Webpet.Models
 {
@@ -10,7 +10,8 @@ namespace Webpet.Models
         public byte[] image { get; set; }
         public string ContentType { get; set; }
 
+        public string ContentType { get; set; }
+
     }
 
-     
 }
