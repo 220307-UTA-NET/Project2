@@ -3,6 +3,8 @@ using System.Web;
 using Microsoft.AspNetCore.Mvc;
 using Webpet.data;
 using Webpet.Models;
+using System.Data.Entity;
+
 
 namespace Webpet.Controllers
 {
@@ -19,46 +21,116 @@ namespace Webpet.Controllers
         }
 
 
-        [HttpGet("Getimage")]
-        public IActionResult Get()
+        [HttpGet("Getimages")]
+        public async Task<ActionResult<string>> Get()
         {
-            string hi = "hello";
-            return Ok(hi);
+            string names = null;
+            foreach (var name in _context.animal_Names) { names = name.anmial_name; }
+
+            return Ok(names);
         }
 
 
-        [HttpPost("create")]
-        public IActionResult create([FromBody] image_data request)
+
+        [HttpGet("pet")]
+        public async Task<FileResult> Getimage(int Id)
         {
+
+
+            var pet = await _context.Images.FindAsync(Id);
+
+
+
+
+            return File(pet.image, pet.ContentType, pet.Name);
+        }
+
+
+
+
+        [HttpPost("create")]
+        public async Task<ActionResult<animals_names>> create(animal_name number)
+        {
+
+            _context.animal_Names.Add(number);
+            await _context.SaveChangesAsync();
+
             return Ok();
         }
 
 
         [HttpPost]
-        public ActionResult Index(IFormFile postedFile)
+        public async Task<ActionResult<pet_image>> Index(IFormFile postedFile)
         {
-            byte[] bytes;
-            using (BinaryReader br = new BinaryReader(postedFile.OpenReadStream()))
+            if (postedFile != null)
             {
-                bytes = br.ReadBytes(postedFile.Length);
+                if (postedFile.Length > 0)
+                {
+                    byte[] bytes = null;
+                    string Name1;
+                    string ContentType;
+                    using (var ms = new MemoryStream())
+                    {
+                        postedFile.CopyTo(ms);
+                        bytes = ms.ToArray();
+                        Name1 = Path.GetFileName(postedFile.Name);
+                        ContentType = postedFile.ContentType;
+                    }
+
+
+                    var pluto = new pet_image { Name = Name1, image = bytes, ContentType = ContentType };
+
+                    _context.Images.Add(pluto);
+
+                    await _context.SaveChangesAsync();
+                }
             }
 
-            _context.Images.Add(new pet_image
+            return Ok("posted");
+        }
+        ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        [HttpPost("pet_profile")]
+        public async Task<ActionResult<pet_profile>> post([FromQuery] pet_profile_data pet_information, IFormFile postedFile)
+        {
+            if (postedFile != null)
             {
-                Name = Path.GetFileName(postedFile.Name),
-                image = bytes,
-                Id = 1,
-            });
-            /* FilesEntities entities = new FilesEntities();
-             entities.tblFiles.Add(new tblFile
-             {
-                 Name = Path.GetFileName(postedFile.Name),
-                 ContentType = postedFile.ContentType,
-                 Data = bytes
-             });
-             entities.SaveChanges();*/
-            return RedirectToAction("Index");
+                if (postedFile.Length > 0)
+                {
+                    byte[] bytes = null;
+                    string Name1;
+                    string ContentType;
+                    using (var ms = new MemoryStream())
+                    {
+                        postedFile.CopyTo(ms);
+                        bytes = ms.ToArray();
+                        Name1 = Path.GetFileName(postedFile.Name);
+                        ContentType = postedFile.ContentType;
+                    }
+
+
+                    var duke = new pet_profile { Name = Name1, image = bytes, ContentType = ContentType, Pet_Name = pet_information.Pet_Name, Pet_behavior = pet_information.Pet_behavior };
+
+                    _context.Pet.Add(duke);
+
+                    await _context.SaveChangesAsync();
+                }
+            }
+
+            return Ok("posted");
         }
 
+
+
+        ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        ///
+        [HttpGet("Pet_image")]
+        public async Task<FileResult> Get_pet_image(int Id)
+        {
+            string names = null;
+            var pet = await _context.Pet.FindAsync(Id);
+
+            return File(pet.image, pet.ContentType, pet.Name);
+        }
     }
 }
+
