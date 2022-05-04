@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
 import { HttpClientModule } from "@angular/common/http";
 import { AppComponent } from './app.component';
 import { PetImagesComponent } from './pet-images/pet-images.component';
@@ -11,15 +10,9 @@ import { FormBuilder } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
 import { FormsModule } from '@angular/forms';
 
-
-import { AppComponent } from './app.component';
-import { PetImagesComponent } from './pet-images/pet-images.component';
-
-
 @NgModule({
   declarations: [
     AppComponent,
-
     PetImagesComponent,
     RegisterCustomerComponent,
     LoginComponent,
@@ -32,12 +25,6 @@ import { PetImagesComponent } from './pet-images/pet-images.component';
     ReactiveFormsModule,
     FormsModule
     
-
-    PetImagesComponent
-  ],
-  imports: [
-    BrowserModule
-
   ],
   providers: [],
   bootstrap: [AppComponent]

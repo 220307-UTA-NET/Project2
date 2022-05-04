@@ -22,7 +22,6 @@ namespace Webpet.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder, 1L, 1);
 
-
             modelBuilder.Entity("Webpet.Models.animal_name", b =>
                 {
                     b.Property<string>("anmial_id")
@@ -36,7 +35,6 @@ namespace Webpet.Migrations
                     b.ToTable("animal_Names");
                 });
 
-<<<<<<< HEAD
             modelBuilder.Entity("Webpet.Models.pet_Dates_Table", b =>
                 {
                     b.Property<int>("Id")
@@ -62,8 +60,6 @@ namespace Webpet.Migrations
 
                     b.ToTable("PetDate");
                 });
-=======
->>>>>>> 0bb0a5d73ed3f565d604954ad8a7a63fa66e288d
 
             modelBuilder.Entity("Webpet.Models.pet_image", b =>
                 {
@@ -73,11 +69,9 @@ namespace Webpet.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
-
                     b.Property<string>("ContentType")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
-
 
                     b.Property<string>("Name")
                         .IsRequired()
@@ -91,7 +85,6 @@ namespace Webpet.Migrations
 
                     b.ToTable("Images");
                 });
-
 
             modelBuilder.Entity("Webpet.Models.pet_profile", b =>
                 {
@@ -154,8 +147,7 @@ namespace Webpet.Migrations
 
                     b.ToTable("User");
                 });
-
-// #pragma warning restore 612, 618
+#pragma warning restore 612, 618
         }
     }
 }
