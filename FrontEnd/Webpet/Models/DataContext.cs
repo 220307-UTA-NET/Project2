@@ -19,13 +19,11 @@ namespace Webpet.Models
 
         public DbSet<pet_profile> Pet { get; set; }
 
-<<<<<<< HEAD
+
         public DbSet<pet_Dates_Table> PetDate { get; set; }
 
 
 
-=======
->>>>>>> 0bb0a5d73ed3f565d604954ad8a7a63fa66e288d
     }
 
 

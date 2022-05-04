@@ -5,8 +5,10 @@ using System.Data.Entity;
 
 namespace Webpet.Controllers
 {
+
     [ApiController]
     [Route("api/[controller]")]
+
 
     public class User_login : Controller
     {
@@ -18,11 +20,19 @@ namespace Webpet.Controllers
             _context = context;
         }
 
+
         [HttpPost("register")]
         public async Task<ActionResult<Users_Data>> create(User_Data create_user)
         {
 
             _context.User.Add(create_user);
+
+        [HttpPost("create_user")]
+        public async Task<ActionResult<Users_Data>> create(User_Data User_input)
+        {
+
+            _context.User.Add(User_input);
+
             await _context.SaveChangesAsync();
 
             return Ok();
