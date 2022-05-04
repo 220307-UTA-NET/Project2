@@ -1,6 +1,10 @@
 using Microsoft.EntityFrameworkCore;
 using Webpet.data;
 
+using Microsoft.EntityFrameworkCore;
+using Webpet.data;
+
+
 
 namespace Webpet.Models
 {
@@ -12,7 +16,8 @@ namespace Webpet.Models
         }
 
         public DbSet<pet_image> Images { get; set; }
-        
+
+
         public DbSet<animal_name> animal_Names { get; set; }
 
         public DbSet<User_Data> User { get; set; }

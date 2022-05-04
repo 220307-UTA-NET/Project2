@@ -19,6 +19,10 @@ export class RegisterCustomerComponent implements OnInit {
   public user_Id !: null;
   
 
+  constructor(private formBuilder : FormBuilder, private http : HttpClient, private router :Router) { }
+
+  ngOnInit(): void {
+
 
   public registercustomer !: FormGroup;
 
@@ -27,7 +31,6 @@ export class RegisterCustomerComponent implements OnInit {
 
   ngOnInit(): void {
 
-    
       
    
     
@@ -42,6 +45,7 @@ export class RegisterCustomerComponent implements OnInit {
       user_Password:this.user_Password}
     console.log(User_input)
     this.http.post<any>("https://petservice.azurewebsites.net/api/User_login/register", User_input).subscribe (res=>{
+
 
     this.registercustomer= this.formBuilder.group({
       

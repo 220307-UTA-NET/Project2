@@ -15,7 +15,7 @@ namespace Webpet.Migrations
     {
         protected override void BuildModel(ModelBuilder modelBuilder)
         {
-#pragma warning disable 612, 618
+// #pragma warning disable 612, 618
             modelBuilder
                 .HasAnnotation("ProductVersion", "6.0.4")
                 .HasAnnotation("Relational:MaxIdentifierLength", 128);
@@ -35,6 +35,7 @@ namespace Webpet.Migrations
 
                     b.ToTable("animal_Names");
                 });
+
 
 
             modelBuilder.Entity("Webpet.Models.pet_Dates_Table", b =>
@@ -154,7 +155,11 @@ namespace Webpet.Migrations
                     b.ToTable("User");
                 });
 
+//#pragma warning restore 612, 618
+
+
 // #pragma warning restore 612, 618
+
         }
     }
 }
