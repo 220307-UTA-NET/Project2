@@ -6,6 +6,8 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'pet_web_side';
+  [x: string]: any;
+  
+  title="pet_Store";
   
 }

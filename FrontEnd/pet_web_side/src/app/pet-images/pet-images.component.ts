@@ -9,7 +9,7 @@ import { HttpClient } from '@angular/common/http';
 export class PetImagesComponent implements OnInit {
   
   postedFile!: File ;
-  pet_name= "pluto";
+  pet_name= "Welcome Dear Customers";
   
   constructor( private http: HttpClient) { }
 
