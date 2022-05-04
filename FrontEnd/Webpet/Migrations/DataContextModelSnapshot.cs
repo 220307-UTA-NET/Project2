@@ -35,6 +35,32 @@ namespace Webpet.Migrations
                     b.ToTable("animal_Names");
                 });
 
+            modelBuilder.Entity("Webpet.Models.pet_Dates_Table", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+
+                    b.Property<int>("Pet_Id")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Pet_Name")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("date")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime>("date2")
+                        .HasColumnType("datetime2");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("PetDate");
+                });
+
             modelBuilder.Entity("Webpet.Models.pet_image", b =>
                 {
                     b.Property<int>("Id")

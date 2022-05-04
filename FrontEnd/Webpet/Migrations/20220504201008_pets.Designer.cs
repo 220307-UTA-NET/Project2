@@ -12,8 +12,8 @@ using Webpet.Models;
 namespace Webpet.Migrations
 {
     [DbContext(typeof(DataContext))]
-    [Migration("20220503005123_PET_LOGIN")]
-    partial class PET_LOGIN
+    [Migration("20220504201008_pets")]
+    partial class pets
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -35,6 +35,32 @@ namespace Webpet.Migrations
                     b.HasKey("anmial_id");
 
                     b.ToTable("animal_Names");
+                });
+
+            modelBuilder.Entity("Webpet.Models.pet_Dates_Table", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+
+                    b.Property<int>("Pet_Id")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Pet_Name")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("date")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime>("date2")
+                        .HasColumnType("datetime2");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("PetDate");
                 });
 
             modelBuilder.Entity("Webpet.Models.pet_image", b =>

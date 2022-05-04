@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace Webpet.Migrations
 {
-    public partial class PET_LOGIN : Migration
+    public partial class pets : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -54,6 +54,22 @@ namespace Webpet.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "PetDate",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Pet_Id = table.Column<int>(type: "int", nullable: false),
+                    Pet_Name = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    date = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    date2 = table.Column<DateTime>(type: "datetime2", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_PetDate", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "User",
                 columns: table => new
                 {
@@ -80,6 +96,9 @@ namespace Webpet.Migrations
 
             migrationBuilder.DropTable(
                 name: "Pet");
+
+            migrationBuilder.DropTable(
+                name: "PetDate");
 
             migrationBuilder.DropTable(
                 name: "User");
