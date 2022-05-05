@@ -1,6 +1,4 @@
-﻿using System.Linq;
-using Microsoft.AspNetCore.Mvc;
-using Webpet.data;
+﻿using Microsoft.AspNetCore.Mvc;
 using Webpet.Models;
 
 namespace Webpet.Controllers
@@ -29,7 +27,7 @@ namespace Webpet.Controllers
         }
 
         [HttpGet("appoitments")]
-        public async Task<List<pet_Dates_Table>> Getappoitments()
+        public Task<List<pet_Dates_Table>> Getappoitments()
         {
 
 
@@ -38,7 +36,7 @@ namespace Webpet.Controllers
 
 
 
-            return (_context.PetDate.ToList());
+            return Task.FromResult((_context.PetDate.ToList()));
         }
 
 
