@@ -1,0 +1,34 @@
+name: CI
+
+
+env:
+   DOTNET_VERSION: '6.0.x'
+   AZURE_WEBAPP_APP_PATH: './Build_output'
+
+
+on:
+ 
+  push:
+    branches: [ cchristian ]
+
+ 
+  workflow_dispatch:
+
+
+jobs:
+ 
+  build: 
+    runs-on: ubuntu-latest
+
+    steps:
+      
+      - uses: actions/checkout@v3
+
+      
+      - name: Run DotNet 
+        uses: actions/setup-dotnet@v1
+        with:  
+              dotnet-version: ${{ env.DOTNET_VERSION }}  
+      
+      - name: list of folders 
+        run: ls 
