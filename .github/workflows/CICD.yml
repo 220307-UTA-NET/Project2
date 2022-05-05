@@ -50,7 +50,7 @@ jobs:
     
       
       - name: build api 
-        run:  dotnet publish ./Webstore/ --configuration Release -o ${{env.AZURE_WEBAPP_APP_PATH}}
+        run:  dotnet publish ./FrontEnd/Webpet/ --configuration Release -o ${{env.AZURE_WEBAPP_APP_PATH}}
       - name: Azure WebApp
         uses: Azure/webapps-deploy@v2
         with:
