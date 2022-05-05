@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
@@ -20,13 +20,7 @@ export class RegisterCustomerComponent implements OnInit {
 
   constructor(private formBuilder : FormBuilder, private http : HttpClient, private router :Router) { }
 
-  ngOnInit(): void {
-    
-      
-   
-    
-
-  }
+  ngOnInit(): void {}
   registercustomers1(){
     const User_input = { 
       
@@ -37,12 +31,15 @@ export class RegisterCustomerComponent implements OnInit {
     console.log(User_input)
     this.http.post<any>("https://petservice.azurewebsites.net/api/User_login/register", User_input).subscribe (res=>{
                      alert("signup successfull");
-                     this.registercustomer.reset();
                      this.router.navigate(['login']);
   
   },err=>{alert ("something went wrong")});
   
-    
+  
   }
+
+ 
+ 
+  
 
 }

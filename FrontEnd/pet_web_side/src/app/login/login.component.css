@@ -8,7 +8,7 @@ font-family:Stencil Std, fantasy;
 font-size: xxx-large;
 }
 
-#user_space
+.user_space
 
 {
 color: #2f273d;
@@ -47,3 +47,16 @@ font-size: larger;
     text-align:center;
     font-size:49px;
   }
+
+  #login_button{
+    color: #2f273d;
+    margin-left: 35%;
+    margin-top: 5%;
+    margin-bottom: 5%;
+    padding: 0% 1% 0% 1%;
+    font-family:Stencil Std, fantasy;
+     font-size: larger;
+     
+
+  }
+  

@@ -9,6 +9,7 @@ import { LoginComponent } from './login/login.component';
 import { FormBuilder } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
 import { FormsModule } from '@angular/forms';
+import { HomePageComponent } from './home-page/home-page.component';
 
 @NgModule({
   declarations: [
@@ -16,6 +17,7 @@ import { FormsModule } from '@angular/forms';
     PetImagesComponent,
     RegisterCustomerComponent,
     LoginComponent,
+    HomePageComponent,
     
   ],
   imports: [

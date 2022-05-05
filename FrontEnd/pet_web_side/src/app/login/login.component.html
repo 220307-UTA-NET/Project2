@@ -1,7 +1,14 @@
-<html>
+
+
+<html lang="en">
+  
     <head  >
       <link rel="stylesheet" href = "./login.component.css">
-      
+      <meta charset="utf-8">
+       <meta http-equiv="X-UA-Compatible" content="IE=edge">
+       <meta name="viewport" content="width=device-width, initial-scale=1">
+
+       <title>loginPage</title>
     </head>
       <body class="container">
         
@@ -11,22 +18,24 @@
         </div>
         <div >
             <form>
-              <label id="user_space">
+              <label class="user_space">
                 Username:
                 <input type="text" name ="name" required maxlength="30">
                 <br>
               </label>
               <br>
-              <label id="user_space">
+              <label class="user_space">
                 Password:&nbsp; 
-                <input type="password" name ="Email" required maxlength="30">
+                <input type="password" [(ngModel)]="Password" name ="Password"  required maxlength="30">
                 <br>
               </label>
+              <br>
+              <button id="login_button" color="primary" md-icon-button type="submit" (click)="findcustomer(Password)" class="btn btn-primary">Submit</button>
   
             </form>
             <br><br>
                 <nav>
-                    <a id="user_space" routerLink="/new user">Register new user</a>
+                    <a class="user_space" routerLink="/new user">Register new user</a>
                 </nav>
           </div>
   
