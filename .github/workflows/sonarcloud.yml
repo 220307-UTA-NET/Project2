@@ -1,0 +1,66 @@
+
+
+name: CI
+
+
+env:
+   DOTNET_VERSION: '6.0.x'
+   AZURE_WEBAPP_APP_PATH: './Build_output'
+
+
+on:
+  
+  push:
+    branches: [ Christian ]
+
+ 
+  workflow_dispatch:
+
+
+jobs:
+ 
+  build: 
+    runs-on: ubuntu-latest
+
+    steps:
+      
+      - uses: actions/checkout@v3
+
+      
+      - name: Run DotNet 
+        uses: actions/setup-dotnet@v1
+        with:  
+              dotnet-version: ${{ env.DOTNET_VERSION }}  
+      
+      - name: list of folders 
+        run: ls 
+            
+      - name: build with DotNet 
+        run:  dotnet build ./Webstore/ --configuration Release -o ${{env.AZURE_WEBAPP_APP_PATH}}
+        
+    #   - name: run web unit test 
+    #     run: dotnet test ./Webstore/WebTestapplication/WebTestapplication.csproj
+     
+    #   - name: run console unit test 
+    #     run: dotnet test ./storeconsole/ConsoleTest/ConsoleTest.csproj
+        
+    #   - name: add files for commit
+    #     run:  git add . ./
+           
+        
+    #  # - name: set account 
+    #   #  run:  git config --global user.email "cubideschristian8@gmail.com"
+    #    #       git config --global user.name "cubidesrojas"
+    #     #     git push ./
+      
+    #   - name: build api 
+    #     run:  dotnet publish ./Webstore/ --configuration Release -o ${{env.AZURE_WEBAPP_APP_PATH}}
+    #   - name: Azure WebApp
+    #     uses: Azure/webapps-deploy@v2
+    #     with:
+    #        app-name: christianspizza
+    #        publish-profile: ${{secrets.pizzas}}
+    #        package: ${{env.AZURE_WEBAPP_APP_PATH}}
+    
+        
+         
