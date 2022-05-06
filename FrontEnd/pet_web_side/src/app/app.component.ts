@@ -10,7 +10,7 @@ export class AppComponent {
 
   [x: string]: any;
   
-  title="pet_Store";
+  
 
   title = 'pet_web_side';
 
