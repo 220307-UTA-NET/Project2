@@ -1,26 +1,20 @@
-# Project2  - Zhixin, Christian, Tahereh, Kelly
-May 6, 2022 .NET / Trainer:Richard Hawkins
+# Pet Sitters Website
 
-Our website provides some services to pet owners who are looking to rehome their animals with those who are looking to adopt.
 
-Users are divided into 2 classes:
--Sellers:
-   -Fields/Constructors:
-        -personal information
-        -pet description
-  -Methods
-     -upload images
-     -access to adopter profile
-  
--Adopters
-   -Fields/Constructors
-       -personal information
-       -home characteristics/conditions
-       
--Methods
-      -Select animal to adopt
-           
+## Project Description
 
-Sellers: they are able to upload images, enter personal information, pet description, and access to adopters’ profiles. 
-Adopters; they are able to enter their personal information and their home characteristics/conditions to their profiles to be available to the sellers.
+The concept behind our project was to create an application that connected pet sitters and pet owners. Our service would allow pet sitters to search through the jobs that pet owners would create. We used Angular services to create our web application, which communicated to a remote SQLServer database hosted by Azure with the use of Web API. We used Http methods to implement the CRUD functionalities necessary to persist data in our web application, allowing for communication with our database to post and request different forms of data, including photos to give users the ability to share  their pet photos with pet sitters. We also were able to ensure the quality of our program with unit tests written in Jasmine and tested with the Karma test runner.
 
+
+
+## Technologies Used
+- Angular - version 13.0.0
+- Entity Framework - version 6.2.0
+- SQL Server Database - version 12.0.2000.8
+- .NET version 6.0
+
+
+
+
+## Contributors
+Christian, Tahereh, Kelly, Zhixin, and Bruk
