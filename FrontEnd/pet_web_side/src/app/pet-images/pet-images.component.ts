@@ -1,8 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
-import { HttpClient } from '@angular/common/http';
-
 
 @Component({
   selector: 'app-pet-images',
@@ -16,24 +14,6 @@ export class PetImagesComponent implements OnInit {
   pet_name= "Welcome Dear Customers";
   
   constructor( private http: HttpClient) { }
-
-
-  ngOnInit(): void {
-  }
-  onFileSelected(event: any) 
-  { 
-    this.postedFile=<File>event.target.files[0]; 
-   
-  }
-  onUpload(){
-    const Form_Data = new FormData();
-    Form_Data.append('postedFile', this.postedFile,this.postedFile.name);
-    this.http.post('https://localhost:7042/api/pet_image_',Form_Data).subscribe(res =>{console.log(res)});
-  }
-
-
-  pet_name= "pluto";
-  constructor() { }
 
 
   ngOnInit(): void {

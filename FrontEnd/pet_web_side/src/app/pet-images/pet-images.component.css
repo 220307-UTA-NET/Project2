@@ -30,7 +30,7 @@ font-size: larger;
   
   .container::before{
     content:"";
-    background-image: url('./images/front_end.jpg');
+    /*background-image: url('./images/front_end.jpg');*/
     opacity:0.5;
     position:absolute;
     top:0;

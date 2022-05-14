@@ -7,7 +7,6 @@ import { RegisterCustomerComponent } from './register-customer/register-customer
 const routes: Routes = [
   {path:'',redirectTo:'login', pathMatch:'full'},
   {path:'new user', component: RegisterCustomerComponent},
-
   {path:'login', component:LoginComponent}
 ];
 
